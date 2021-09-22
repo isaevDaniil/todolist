@@ -3,7 +3,7 @@ const ADD_TASK = "ADD_TASK";
 let initialState = {
     tasks:[
         {name:"Задача1", description:"Описание задачи"},
-        {name:"Задача2", description:"Описание задачи"},
+        {name:"Задача2", description:"Описаниasdsaе задачи"},
         {name:"Задача3", description:"Описание задачи"},
     ]
 }
