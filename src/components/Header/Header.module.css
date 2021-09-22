@@ -1,0 +1,36 @@
+.header {
+    background-color:blue;
+    color: white;
+}
+
+.header div {
+    margin: 1%;
+    font-size: 200%;
+}
+
+.title {
+    float: left;
+    padding:0 1% 0 1%;
+}
+
+.navPanel {
+    float: left;
+}
+
+.navPanel a {
+    color: white;
+    padding: 0 5% 0 5%;
+    font-size: 80%;
+}
+
+.navPanel a.activeLink {
+    color: cornflowerblue;
+}
+
+.navPanel a:not(:last-child) {
+    border-right: solid #fff;
+}
+
+.addButton {
+    float: right;
+}

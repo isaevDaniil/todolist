@@ -1,0 +1,23 @@
+.task {
+    width: 100%;
+    border-bottom: solid #000;
+}
+
+.taskInfo {
+    width: 80%;
+    display: inline-block;
+}
+
+.buttons {
+    display: inline-block;
+    width: 20%;
+}
+
+.editButton {
+    margin: 2px;
+}
+
+.delButton {
+    margin: 2px;
+}
+

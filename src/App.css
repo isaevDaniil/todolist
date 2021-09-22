@@ -1,0 +1,6 @@
+.app {
+  display: grid;
+
+  grid-template-rows: auto auto;
+  grid-template-columns: 12fr; 
+}
