@@ -7,8 +7,8 @@ import Categories from "./Сategories/Categories";
 const Content = (props) => {
     return (
         <div className={style.content}>
-            <Route path='/tasks' render={()=><Tasks tasks={props.tasksPage.tasks}/>} />
-            <Route path='/categories' component={Categories} />
+            <Route path='/tasks' render={() => <Tasks tasks={props.tasksPage.tasks} />} />
+            <Route path='/categories' render={() => <Categories categories={props.categoriesPage.categories} />} />
         </div>
     )
 }

@@ -11,28 +11,12 @@
     float: right;
 }
 
-.formContainer {
-    display: grid;
-    grid-template-areas:
-    "H H"
-    "B B"
-    "F F";
-}
-
 .modalBody {
     grid-area: B;
     display: grid;
     grid-template-areas:
     "N C"
     "D D";
-}
-
-.formContainer input {
-    margin: 10px;
-}
-
-.formContainer select {
-    margin: 10px;
 }
 
 .taskNameInput {
