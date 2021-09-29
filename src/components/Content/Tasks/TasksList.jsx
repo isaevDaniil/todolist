@@ -2,8 +2,8 @@ import React from "react";
 import Task from "./Task";
 import style from "./Tasks.module.css"
 
-const Tasks = (props) => {
-    const tasksComponents = props.tasks.map(t=><Task taskName={t.name} taskDescription={t.description}/>);
+const TasksList = (props) => {
+    const tasksComponents = props.tasks.map(t=><Task taskName={t.name} taskDescription={t.description} taskCategory={t.category}/>);
     return (
         <div className={style.tasksList}>
             {tasksComponents}
@@ -11,4 +11,4 @@ const Tasks = (props) => {
     )
 }
 
-export default Tasks;
+export default TasksList;

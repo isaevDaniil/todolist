@@ -5,7 +5,7 @@ const Task = (props) => {
     return (
         <div className={style.task}>
             <div className={style.taskInfo}>
-                <span>{props.taskName}</span><a href="">Категория</a>
+                <span>{props.taskName}</span>{props.taskCategory ? <a href="">{props.taskCategory}</a> : null}
                 <p>{props.taskDescription}</p>
             </div>
             <div className={style.buttons}>

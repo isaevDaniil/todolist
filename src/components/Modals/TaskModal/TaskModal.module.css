@@ -1,38 +1,9 @@
-.modalHeader {
-    grid-area: H;
-    margin: 5px;
-}
-
-.modalTitle {
-    margin: 10px;
-}
-
-.cancelButton {
-    float: right;
-}
-
-.formContainer {
-    display: grid;
-    grid-template-areas:
-    "H H"
-    "B B"
-    "F F";
-}
-
 .modalBody {
     grid-area: B;
     display: grid;
     grid-template-areas:
     "N C"
     "D D";
-}
-
-.formContainer input {
-    margin: 10px;
-}
-
-.formContainer select {
-    margin: 10px;
 }
 
 .taskNameInput {
@@ -45,21 +16,6 @@
 
 .taskDescriptionInput {
     grid-area: D;
-}
-
-.modalFooter {
-    grid-area: F;
-    margin: 5px;
-}
-
-.modalFooter button {
-    float: right;
-    margin: 2%;
-}
-
-.modalFooter input {
-    float: right;
-    margin: 2%;
 }
 
 .selectPlaceholder {

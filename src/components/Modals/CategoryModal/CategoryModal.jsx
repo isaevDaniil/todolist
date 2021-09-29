@@ -1,45 +1,30 @@
 import React, { useState } from "react";
+import { addCategory } from "../../../redux/slices/categoriesSlice";
+import Modal from "../Modal";
 import style from "./CategoryModal.module.css";
 
 const CategoryModal = (props) => {
-    const categoryPlaceHolder = "Выберите категорию";
-    const [taskName, setTaskName] = useState("");
-    const [taskCategory, setTaskCategory] = useState(categoryPlaceHolder);
-    const [taskDescription, setTaskDescription] = useState("");
-
-    let categories = [{ name: "asd" }, { name: "asdasd11" }, { name: "asdasd" }]
-    const categoriesOptions = categories.map(c => <option value={c.name}>{c.name}</option>)
+    const [categoryName, setCategoryName] = useState("");
+    const [categoryDescription, setCategoryDescription] = useState("");
 
     const handleClose = (e) => {
         e.preventDefault();
-        setTaskName("");
-        setTaskCategory(categoryPlaceHolder);
-        setTaskDescription("");
+        setCategoryName("");
+        setCategoryDescription("");
         props.setModalActive(false);
     }
     const handleSubmit = (e) => {
-        //e.preventDefault();
+        props.dispatch(addCategory({ id: 4, name: categoryName, description: categoryDescription }));
         handleClose(e);
     }
+
     return (
-        <>
-            <div className={style.modalHeader}>
-                <span className={style.modalTitle}>{props.title}</span>
-                <button className={style.cancelButton} onClick={handleClose}>Close</button>
-            </div>
+        <Modal title={"Создание категории"} isActive={props.isActive} handleClose={handleClose} handleSubmit={handleSubmit}>
             <div className={style.modalBody}>
-                <input className={style.taskNameInput} type="text" placeholder="Введите имя задачи" value={taskName} onChange={(e) => setTaskName(e.target.value)} />
-                <select className={style.taskCategorySelect} value={taskCategory} onChange={(e) => setTaskCategory(e.target.value)}>
-                    <option className={style.selectPlaceholder} disabled selected>{taskCategory}</option>
-                    {categoriesOptions}
-                </select>
-                <input className={style.taskDescriptionInput} type="text" placeholder="Введите описание задачи" value={taskDescription} onChange={(e) => setTaskDescription(e.target.value)} />
+                <input className={style.categoryNameInput} type="text" placeholder="Введите имя категории" value={categoryName} onChange={(e) => setCategoryName(e.target.value)} />
+                <textarea className={style.categoryDescriptionInput} placeholder="Введите описание категории" value={categoryDescription} onChange={(e) => setCategoryDescription(e.target.value)}></textarea>
             </div>
-            <div className={style.modalFooter}>
-                <button className={style.closeButton} onClick={handleClose}>Закрыть</button>
-                <button className={style.closeButton} onClick={handleClose}>Создать</button>
-            </div>
-        </>
+        </Modal>
     )
 }
 

@@ -1,14 +1,14 @@
-import { combineReducers, createStore } from "redux";
-import categoriesReducer from "./reducers/CategoriesReducer";
-import headerReducer from "./reducers/HeaderReducer";
-import tasksReducer from "./reducers/TasksReducer";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import categoriesSlice from "./slices/categoriesSlice";
+import tasksSlice from "./slices/tasksSlice";
 
 let reducers = combineReducers({
-    header: headerReducer,
-    tasksPage: tasksReducer,
-    categoriesPage: categoriesReducer
+    tasksPage: tasksSlice,
+    categoriesPage: categoriesSlice
 });
 
-let store = createStore(reducers);
+const store = configureStore({
+    reducer: reducers
+});
 
 export default store;

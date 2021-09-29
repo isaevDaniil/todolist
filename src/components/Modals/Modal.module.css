@@ -17,7 +17,20 @@
     pointer-events: all;
 }
 
+.modalHeader {
+    grid-area: H;
+    display: grid;
+    grid-template-columns:10fr 2fr;
+}
+.modalTitle {
+    margin: 4%;
+}
+.cancelButton {
+margin: 15%;
+}
+
 .modalContent {
+    width: 30%;
     background-color: white;
     color: black;
     display: grid;
@@ -28,9 +41,18 @@
 }
 
 .modalContent input {
-    margin: 10px;
+    margin: 4%;
 }
 
 .modalContent select {
     margin: 10px;
+}
+
+.modalFooter {
+    grid-area: F;
+}
+
+.modalFooter button {
+    float: right;
+    margin: 4%;
 }
