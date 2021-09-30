@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import store from './redux/store';
 
+
+
 let rerenderEntireTree = (state) => {
   ReactDOM.render(
     <BrowserRouter>

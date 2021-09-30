@@ -4,7 +4,6 @@ import style from "./Header.module.css";
 import Taskmodal from "../Modals/TaskModal/TaskModal"
 import CategoryModal from "../Modals/CategoryModal/CategoryModal"
 
-
 const Header = (props) => {
     const [isTaskModalActive, setTaskModalActive] = useState(false);
     const [isCategoryModalActive, setCategoryModalActive] = useState(false);

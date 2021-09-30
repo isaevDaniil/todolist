@@ -1,21 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
 const tasksSlice = createSlice({
     name: "tasksSlice",
     initialState: {
-        tasks: [
-            { name: "Задача1", category: "Категория1", description: "Описание задачи" },
-            { name: "Задача2", category: "Категория2", description: "Описание задачи" },
-            { name: "Задача3", category: "Категория3", description: "Описание задачи" },
-        ]
+        tasks: []
     },
     reducers: {
         addTask(state, action) {
             state.tasks.push(action.payload);
+        },
+        downloadTasks(state, action) {
+            state.tasks.push(...(action.payload));
         }
     }
 });
 
-export const { addTask } = tasksSlice.actions;
+export const { addTask, downloadTasks } = tasksSlice.actions;
 
 export default tasksSlice.reducer;
