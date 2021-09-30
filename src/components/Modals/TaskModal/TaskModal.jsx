@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useIndexedDB } from "react-indexed-db";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { addTask } from "../../../redux/slices/tasksSlice";
 import Modal from "../Modal";
 import style from "./TaskModal.module.css";
@@ -10,9 +12,11 @@ const TaskModal = (props) => {
     const [taskCategory, setTaskCategory] = useState(null);
     const [taskDescription, setTaskDescription] = useState("");
 
-    const db = useIndexedDB("Items");
+    const {add} = useIndexedDB("Items");
 
-    const categoriesOptions = props.categories.map(c => <option value={c.name}>{c.name}</option>)
+    const categories = useSelector(state=>state.categoriesPage.categories)
+    const categoriesOptions = categories.map(c => <option value={c.name}>{c.name}</option>)
+    const dispatch = useDispatch();
 
     const handleClose = (e) => {
         e.preventDefault();
@@ -23,8 +27,10 @@ const TaskModal = (props) => {
     }
     const handleSubmit = (e) => {
         const task = { name: taskName, category: taskCategory, description: taskDescription };
-        db.add(task);
-        props.dispatch(addTask(task));
+        add(task).then(generatedId => {
+            task.id = generatedId;
+            dispatch(addTask(task));
+        });
         handleClose(e);
     }
     return (

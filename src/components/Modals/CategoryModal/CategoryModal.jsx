@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useIndexedDB } from "react-indexed-db";
+import { useDispatch } from "react-redux";
 import { addCategory } from "../../../redux/slices/categoriesSlice";
 import Modal from "../Modal";
 import style from "./CategoryModal.module.css";
@@ -7,6 +8,8 @@ import style from "./CategoryModal.module.css";
 const CategoryModal = (props) => {
     const [categoryName, setCategoryName] = useState("");
     const [categoryDescription, setCategoryDescription] = useState("");
+
+    const dispatch = useDispatch();
 
     const db = useIndexedDB("Categories");
 
@@ -19,7 +22,7 @@ const CategoryModal = (props) => {
     const handleSubmit = (e) => {
         const newCategory = { name: categoryName, description: categoryDescription };
         db.add(newCategory);
-        props.dispatch(addCategory(newCategory));
+        dispatch(addCategory(newCategory));
         handleClose(e);
     }
 

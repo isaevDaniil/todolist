@@ -21,13 +21,10 @@ const Header = (props) => {
             </div>
             {isTaskModalActive ? <Taskmodal
                 isActive={isTaskModalActive}
-                setModalActive={setTaskModalActive}
-                categories={props.state.categoriesPage.categories}
-                dispatch={props.dispatch} /> : null}
+                setModalActive={setTaskModalActive}/> : null}
             {isCategoryModalActive ? <CategoryModal
                 isActive={isCategoryModalActive}
-                setModalActive={setCategoryModalActive}
-                dispatch={props.dispatch} /> : null}
+                setModalActive={setCategoryModalActive}/> : null}
         </div>
     )
 }
